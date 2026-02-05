@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web-server:
+    image: httpd:${APP_VERSION:-latest}
+    container_name: demo-web-app-apache
+    ports:
+      - "${HOST_PORT:-8080}:80"
+    environment:
+      - APP_ENV=${APP_ENV:-production}
+    restart: always
